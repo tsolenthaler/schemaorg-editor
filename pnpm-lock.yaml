@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  monaco-editor:
+    specifier: ^0.45.0
+    version: 0.45.0
   next:
     specifier: 14.0.4
     version: 14.0.4(react-dom@18.2.0)(react@18.2.0)
@@ -16,7 +19,7 @@ dependencies:
     version: 18.2.0(react@18.2.0)
   react-monaco-editor:
     specifier: ^0.55.0
-    version: 0.55.0(@types/react@18.2.48)(monaco-editor@0.44.0)(react@18.2.0)
+    version: 0.55.0(@types/react@18.2.48)(monaco-editor@0.45.0)(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -1837,8 +1840,8 @@ packages:
     engines: {node: '>=16 || 14 >=14.17'}
     dev: true
 
-  /monaco-editor@0.44.0:
-    resolution: {integrity: sha512-5SmjNStN6bSuSE5WPT2ZV+iYn1/yI9sd4Igtk23ChvqB7kDk9lZbB9F5frsuvpB+2njdIeGGFf2G4gbE6rCC9Q==}
+  /monaco-editor@0.45.0:
+    resolution: {integrity: sha512-mjv1G1ZzfEE3k9HZN0dQ2olMdwIfaeAAjFiwNprLfYNRSz7ctv9XuCT7gPtBGrMUeV1/iZzYKj17Khu1hxoHOA==}
     dev: false
 
   /ms@2.1.2:
@@ -2193,7 +2196,7 @@ packages:
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
 
-  /react-monaco-editor@0.55.0(@types/react@18.2.48)(monaco-editor@0.44.0)(react@18.2.0):
+  /react-monaco-editor@0.55.0(@types/react@18.2.48)(monaco-editor@0.45.0)(react@18.2.0):
     resolution: {integrity: sha512-GdEP0Q3Rn1dczfKEEyY08Nes5plWwIYU4sWRBQO0+jsQWQsKMHKCC6+hPRwR7G/4aA3V/iU9jSmWPzVJYMVFSQ==}
     peerDependencies:
       '@types/react': '>=16 <= 18'
@@ -2201,7 +2204,7 @@ packages:
       react: '>=16 <= 18'
     dependencies:
       '@types/react': 18.2.48
-      monaco-editor: 0.44.0
+      monaco-editor: 0.45.0
       prop-types: 15.8.1
       react: 18.2.0
     dev: false
