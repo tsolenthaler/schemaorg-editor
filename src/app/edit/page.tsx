@@ -1,9 +1,22 @@
-"use client";
+'use client'
 
-import Editor from "@monaco-editor/react";
+import MonacoEditor from "@monaco-editor/react";
 
-export type CodeEditorProps = Parameters<typeof Editor>[0];
+import useStyles from './useStyles';
 
-export default function CodeEditor(props: CodeEditorProps) {
-	return <Editor {...props} />;
+export default function Home() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <MonacoEditor
+          height="100vh" // By default, it fully fits with its parent
+		  width="100%"
+          theme="dark"
+          language="json"
+          value='{
+			"some": "json"
+		}'
+          //onChange={(value, ev) => {}}
+        />
+    </main>
+  );
 }
