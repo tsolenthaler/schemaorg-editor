@@ -1,7 +1,6 @@
 import Header from '@/app/components/header';
 import Settings from '@/app/components/settings';
-//import Editor from '@/app/components/editor';
-import Editor from '../components/editor';
+import Editor from '@/app/components/editor';
 
 export default function Home() {
   return (
