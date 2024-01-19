@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 
 //import useStyles from './useStyles';
 
-const Loading = _ => {
+const Loading = (_: any) => {
   //const classes = useStyles();
 
   //return <Paper elevation={0} square={true} className={classes.preloader}>

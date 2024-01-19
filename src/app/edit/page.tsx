@@ -1,22 +1,21 @@
 'use client'
 
-import MonacoEditor from "@monaco-editor/react";
-
-import useStyles from './useStyles';
+import Editor from '@/app/components/editor';
+import EditorHeader from '@/app/components/header';
+import Settings from '@/app/components/settings';
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-        <MonacoEditor
-          height="100vh" // By default, it fully fits with its parent
-		  width="100%"
-          theme="dark"
-          language="json"
-          value='{
-			"some": "json"
-		}'
-          //onChange={(value, ev) => {}}
-        />
-    </main>
+    <div>
+      <EditorHeader />
+      <div className="flex flex-row">
+        <div className="flex-auto">
+          <Editor />
+        </div>
+        <div className="flex-auto">
+          <Settings />
+        </div>
+      </div>
+    </div>
   );
 }
