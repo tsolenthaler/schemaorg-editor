@@ -1,9 +1,11 @@
-import React from 'react';
 
-import Layout from '@/app/layout';
+import Link from 'next/link';
+import Image from 'next/image';
 
-const App = (_: any) => (
-    <Layout />
-);
-
-export default App;
+export default function Page() {
+  return (
+    <main className="flex min-h-screen flex-col p-6">
+        <p>Hello</p>
+    </main>
+  );
+}
