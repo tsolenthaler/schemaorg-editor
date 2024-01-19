@@ -5,20 +5,7 @@ const code = `{
 }`;
 
 const Editor = (_: any) => {
-
-    const classes = {
-        root: {
-            position: 'absolute',
-            right: 0,
-            top: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: '#1e1e1e',
-            color: '#fff',
-            padding: '1rem'
-        }
-    };
-
+  
     function onMount(editor: any, monaco: any) {
         const modelUri = "https://tsolenthaler.github.io/schemaorg-editor/examples/hotel.jsonld"
         const model = monaco.editor.createModel(

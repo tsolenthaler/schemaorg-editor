@@ -1,5 +1,3 @@
-'use client'
-
 import Editor from '@/app/components/editor';
 import Header from '@/app/components/header';
 import Settings from '@/app/components/settings';
