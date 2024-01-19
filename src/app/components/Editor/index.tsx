@@ -53,7 +53,7 @@ const Editor = (_: any) => {
           ],
           validate: true
         })
-      }
+    }
 
     return(
         <div>
