@@ -1,3 +1,5 @@
+'use client'
+
 import MonacoEditor from '@monaco-editor/react';
 
 const code = `{
@@ -20,20 +22,14 @@ const Edit = (_: any) => {
           allowComments: true,
           schemas: [
             {
-              uri: "foo://myapp/segment/type",
+              //uri: "foo://myapp/segment/type",
               fileMatch: ["*.json"],
               schema: {
                 type: "object",
                 properties: {
                   type: {
                     enum: ["v1", "v2"],
-                  },
-                  name: {
-                    enum: ["Test Object"],
-                  },
-                  byDay: {
-                    enum: ["https://schema.org/Monday", "https://schema.org/Tuesday", "https://schema.org/Wednesday", "https://schema.org/Thursday", "https://schema.org/Friday", "https://schema.org/Saturday", "https://schema.org/Sunday"],
-                  },
+                  }
                 },
               },
             }

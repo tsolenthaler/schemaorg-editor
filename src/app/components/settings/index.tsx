@@ -1,34 +1,42 @@
-import { Fragment } from 'react';
-import {
-    BriefcaseIcon,
-    CalendarIcon,
-    CheckIcon,
-    ChevronDownIcon,
-    CurrencyDollarIcon,
-    LinkIcon,
-    MapPinIcon,
-    PencilIcon,
-} from '@heroicons/react/20/solid';
-import { Menu, Transition } from '@headlessui/react';
-import Button from '@mui/material/Button';
+'use client'
+
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from '@mui/material/Select';
+import Typography from '@mui/material/Typography';
+
 
 const Settings = (_: any) => {
-    const classes = {
-        root: {
-            position: 'absolute',
-            right: 0,
-            top: 0,
-            width: '20%',
-            height: '100%',
-            backgroundColor: '#1e1e1e',
-            color: '#fff',
-            padding: '1rem'
-        }
+    const [example, setExample] = React.useState('');
+
+    const handleChange = (event: SelectChangeEvent) => {
+        setExample(event.target.value as string);
     };
 
     return(
-        <div className="lg:flex lg:items-center lg:justify-between">
-            <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">Settings</h2>
+        <div className="">
+            <Typography className="" variant="h5">Settings</Typography>
+            <div>
+                <Typography className="" variant="h7">JSON-LD Exampels</Typography>
+                <Box sx={{ minWidth: 120 }}>
+                    <FormControl fullWidth variant="filled">
+                        <InputLabel id="demo-simple-select-label">Type</InputLabel>
+                        <Select
+                        labelId="demo-simple-select-label"
+                        id="demo-simple-select"
+                        value={example}
+                        label="Example"
+                        onChange={handleChange}
+                        >
+                        <MenuItem value={10}>Place</MenuItem>
+                        <MenuItem value={20}>Event</MenuItem>
+                        </Select>
+                    </FormControl>
+                </Box>
+            </div>
         </div>
     );
 };
