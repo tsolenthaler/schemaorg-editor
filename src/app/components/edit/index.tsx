@@ -2,7 +2,6 @@
 
 import MonacoEditor from '@monaco-editor/react';
 import { useRef, useEffect, useState } from 'react';
-import Papa from 'papaparse';
 
 const code = `{
   "some": "json"
@@ -10,37 +9,28 @@ const code = `{
 
 const Edit = (_: any) => {
     const editorRef = useRef(null);
-    const [completionItems, setCompletionItems] = useState([]);
   
-    const provideCompletionItems = () => {
-      return { suggestions: completionItems };
-    };
-  
-    function onMount(editor: any, monaco: any) {
-        const modelUri = "https://tsolenthaler.github.io/schemaorg-editor/examples/hotel.jsonld"
-        const model = monaco.editor.createModel(
-          `{
-    "@type": "Place"
-}`, "json", monaco.Uri.parse(modelUri)
-        )
-
-        fetch('https://schema.org/version/latest/schemaorg-current-https-properties.csv')
-        .then(response => response.text())
+    const onMount = (editor: any, monaco: any) => {
+      fetch('./assets/schemaorg-all-https.jsonld')
+        .then(response => response.json())
         .then(data => {
-          const results = Papa.parse(data, { header: true });
-          
-          setCompletionItems(results.data.map(item => ({
-            label: item.propertyID,
-            kind: monaco.languages.CompletionItemKind.Property,
-            insertText: item.propertyID,
-            detail: item.description,
-          })));
-        });
-        
-        monaco.languages.registerCompletionItemProvider('json', { provideCompletionItems });
-        editor.setModel(model)
-        editorRef.current = editor;
-    }
+            const completionItems = data["@graph"].map((item: any) => ({
+            //label: item["@id"].replace('schema:', ''),
+            label: item["rdfs:label"],
+            kind: item["@type"] === "rdf:Property" ? monaco.languages.CompletionItemKind.Property : monaco.languages.CompletionItemKind.Class,
+            insertText: item["rdfs:label"],
+            detail: item["rdfs:comment"],
+          }));
+  
+          const provideCompletionItems = () => {
+            return { suggestions: completionItems };
+          };
+  
+          monaco.languages.registerCompletionItemProvider('json', { provideCompletionItems });
+      });
+  
+      editorRef.current = editor;
+    };
 
     const formatCode = () => {
       if (editorRef.current) {
